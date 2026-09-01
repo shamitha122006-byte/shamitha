@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class LibraryManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> books = new ArrayList<>();
+
+        int choice;
+
+        do {
+            System.out.println("\n--- LIBRARY MANAGEMENT ---");
+            System.out.println("1. Add Book");
+            System.out.println("2. View Books");
+            System.out.println("3. Search Book");
+            System.out.println("4. Exit");
+
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Book Name: ");
+                    String book = sc.nextLine();
+                    books.add(book);
+                    System.out.println("Book Added Successfully!");
+                    break;
+
+                case 2:
+                    System.out.println("Available Books:");
+                    for (String b : books) {
+                        System.out.println(b);
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter Book Name to Search: ");
+                    String search = sc.nextLine();
+
+                    if (books.contains(search)) {
+                        System.out.println("Book Available!");
+                    } else {
+                        System.out.println("Book Not Found!");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Thank You!");
+                    break;
+            }
+
+        } while (choice != 4);
+    }
+}
