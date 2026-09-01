@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class QuizApplication {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int score = 0;
+
+        System.out.println("1. Java is a?");
+        System.out.println("A. Programming Language");
+        System.out.println("B. Database");
+        System.out.println("C. Browser");
+
+        char answer = sc.next().charAt(0);
+
+        if (answer == 'A' || answer == 'a') {
+            score++;
+        }
+
+        System.out.println("\n2. HTML stands for?");
+        System.out.println("A. Hyper Text Markup Language");
+        System.out.println("B. High Text Machine Language");
+        System.out.println("C. Hyper Tool Multi Language");
+
+        answer = sc.next().charAt(0);
+
+        if (answer == 'A' || answer == 'a') {
+            score++;
+        }
+
+        System.out.println("\nYour Score: " + score + "/2");
+    }
+}
