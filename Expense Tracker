@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ExpenseTracker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Double> expenses = new ArrayList<>();
+        int choice;
+
+        do {
+            System.out.println("\n--- EXPENSE TRACKER ---");
+            System.out.println("1. Add Expense");
+            System.out.println("2. View Expenses");
+            System.out.println("3. Total Expense");
+            System.out.println("4. Exit");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Expense Amount: ");
+                    double amount = sc.nextDouble();
+                    expenses.add(amount);
+                    break;
+
+                case 2:
+                    System.out.println("Expenses: " + expenses);
+                    break;
+
+                case 3:
+                    double total = 0;
+                    for (double expense : expenses) {
+                        total += expense;
+                    }
+                    System.out.println("Total Expense: " + total);
+                    break;
+            }
+
+        } while (choice != 4);
+    }
+}
