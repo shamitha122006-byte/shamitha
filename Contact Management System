@@ -1,0 +1,69 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Contact {
+    String name;
+    String phone;
+
+    Contact(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
+    }
+}
+
+public class ContactManagement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Contact> contacts = new ArrayList<>();
+        int choice;
+
+        do {
+            System.out.println("\n--- CONTACT MANAGEMENT ---");
+            System.out.println("1. Add Contact");
+            System.out.println("2. View Contacts");
+            System.out.println("3. Search Contact");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Exit");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+                    System.out.print("Enter Phone: ");
+                    String phone = sc.nextLine();
+
+                    contacts.add(new Contact(name, phone));
+                    System.out.println("Contact Added!");
+                    break;
+
+                case 2:
+                    for (Contact c : contacts) {
+                        System.out.println(c.name + " - " + c.phone);
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter Name to Search: ");
+                    String search = sc.nextLine();
+
+                    for (Contact c : contacts) {
+                        if (c.name.equalsIgnoreCase(search)) {
+                            System.out.println("Found: " + c.name + " - " + c.phone);
+                        }
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Enter Name to Delete: ");
+                    String delete = sc.nextLine();
+                    contacts.removeIf(c -> c.name.equalsIgnoreCase(delete));
+                    System.out.println("Contact Deleted!");
+                    break;
+            }
+
+        } while (choice != 5);
+    }
+}
